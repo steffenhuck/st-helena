@@ -1,49 +1,314 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
-<meta name=Generator content="Microsoft Word 15 (filtered)">
-<style>
-<!--
- /* Font Definitions */
- @font-face
-	{font-family:"Cambria Math";
-	panose-1:2 4 5 3 5 4 6 3 2 4;}
-@font-face
-	{font-family:Calibri;
-	panose-1:2 15 5 2 2 2 4 3 2 4;}
- /* Style Definitions */
- p.MsoNormal, li.MsoNormal, div.MsoNormal
-	{margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:8.0pt;
-	margin-left:0cm;
-	line-height:107%;
-	font-size:11.0pt;
-	font-family:"Calibri",sans-serif;}
-.MsoChpDefault
-	{font-family:"Calibri",sans-serif;}
-.MsoPapDefault
-	{margin-bottom:8.0pt;
-	line-height:107%;}
-@page WordSection1
-	{size:595.3pt 841.9pt;
-	margin:70.85pt 70.85pt 2.0cm 70.85pt;}
-div.WordSection1
-	{page:WordSection1;}
--->
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>St Helena</title>
+  <script data-goatcounter="https://steffenhuck.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #b8b8b2;
+      --text: #16161e;
+      --muted: #4a4a52;
+      --max-width: 680px;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(80,80,90,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 78% 65%, rgba(70,70,80,0.10) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 90%, rgba(90,90,95,0.08) 0%, transparent 40%),
+        radial-gradient(ellipse at 10% 80%, rgba(75,75,85,0.09) 0%, transparent 35%);
+      background-color: #bcbcb6;
+      color: var(--text);
+      font-family: 'IM Fell English', Georgia, serif;
+      font-size: 21px;
+      line-height: 1.8;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 72px 32px 100px;
+      opacity: 0;
+      animation: fadeIn 1.8s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: var(--text);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+
+    .cast-label {
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 20px;
+      margin-bottom: 6px;
+    }
+
+    .cast {
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--text);
+      opacity: 0.75;
+      letter-spacing: 0.04em;
+      line-height: 1.9;
+    }
+
+    /* Frontispiece image */
+    .frontispiece {
+      margin: 44px auto 52px;
+      width: 88%;
+      display: block;
+    }
+
+    .frontispiece img {
+      width: 100%;
+      display: block;
+      border: 1px solid rgba(140, 110, 60, 0.3);
+    }
+
+    /* Stage directions */
+    .stage {
+      font-style: italic;
+      color: var(--muted);
+      font-size: 0.9em;
+      margin: 1.2rem 0;
+      line-height: 1.7;
+    }
+
+    /* Speaker name */
+    .speaker {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 1.6rem;
+      margin-bottom: 0.15rem;
+    }
+
+    /* Dialogue */
+    .line {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    /* Inline direction */
+    .direction-inline {
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: block;
+      margin: 0.2rem 0 0.4rem;
+    }
+
+    /* Beat */
+    .beat {
+      font-style: italic;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: block;
+      margin: 0.6rem 0;
+    }
+
+    /* Signature */
+    .signature {
+      text-align: center;
+      margin-top: 80px;
+      font-size: 0.82rem;
+      letter-spacing: 0.22em;
+    }
+
+    .signature a {
+      text-decoration: none;
+      color: var(--muted);
+      font-style: normal;
+      transition: color 0.3s ease;
+    }
+
+    .signature a:hover {
+      color: var(--text);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 19px; }
+      .container { padding: 48px 22px 80px; }
+      .frontispiece { width: 96%; }
+    }
+  </style>
 </head>
+<body>
+  <div class="container">
 
-<body lang=DE>
+    <div class="header">
+      <div class="title">St Helena</div>
+      <div class="subtitle">A Play</div>
+      <div class="cast-label">Cast</div>
+      <div class="cast">
+        Napoleon &nbsp;&middot;&nbsp; The First Student &nbsp;&middot;&nbsp; The Gravedigger &nbsp;&middot;&nbsp; Betsy
+      </div>
+    </div>
 
-<div class=WordSection1>
+    <div class="frontispiece">
+      <img src="sthelena-hero.png" alt="St Helena">
+    </div>
 
-<p class=MsoNormal>xx</p>
+    <p class="stage">(The lawn before Longwood House on St Helena. Napoleon is resting on a sun lounger. The First Student is sitting on a stool next to him, holding a yellow rose in one of his hands. The Gravedigger is shovelling.)</p>
 
-</div>
+    <p class="speaker">Napoleon</p>
+    <p class="line">Who is he?</p>
 
+    <p class="speaker">The First Student</p>
+    <p class="line">He&rsquo;s my grandfather.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="line">I can see where you get your good looks from.</p>
+
+    <p class="speaker">The First Student</p>
+    <p class="line">I&rsquo;m not so sure.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="line">I am.</p>
+
+    <span class="beat">(A beat.)</span>
+
+    <p class="speaker">Napoleon</p>
+    <p class="line">What is he doing?</p>
+
+    <p class="speaker">The First Student</p>
+    <p class="line">He is digging your grave.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="line">Is my cough so bad? Is it finally time &mdash;</p>
+
+    <p class="speaker">The First Student</p>
+    <p class="line">To die?</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="line">To die &hellip;</p>
+
+    <p class="speaker">The First Student</p>
+    <p class="line">It looks like it.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="line">I&rsquo;m glad you are by my side then.</p>
+
+    <p class="speaker">The First Student</p>
+    <p class="line">I don&rsquo;t want you to die.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="line">Others will be delighted.</p>
+
+    <p class="speaker">The First Student</p>
+    <p class="line">Don&rsquo;t say that.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="line">The garden is still adorable.</p>
+
+    <span class="beat">(A beat.)</span>
+
+    <p class="speaker">Napoleon</p>
+    <p class="line">Apart from that growing hole.</p>
+
+    <p class="speaker">The First Student</p>
+    <p class="line">Look what I brought you.</p>
+
+    <p class="stage">(The First Student hands the rose to Napoleon.)</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="line">A primrose.</p>
+
+    <span class="beat">(A beat.)</span>
+
+    <p class="speaker">Napoleon</p>
+    <p class="line">Thank you.</p>
+
+    <p class="speaker">The First Student</p>
+    <p class="line">Not for that.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="line">Is Betsy around?</p>
+
+    <p class="speaker">The First Student</p>
+    <p class="line">She is.</p>
+
+    <p class="stage">(A pause. Betsy steps out of the house carrying a plate with pasta and chicken.)</p>
+
+    <p class="speaker">Betsy</p>
+    <p class="line">I had promised you.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="line">To see you twice after such a long time of separation.</p>
+
+    <p class="speaker">Betsy</p>
+    <p class="line">I know. It&rsquo;s extraordinary.</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="line">It is. As is your chicken.</p>
+
+    <p class="speaker">Betsy</p>
+    <p class="line">Enjoy it.</p>
+
+    <p class="stage">(Napoleon takes a drumstick and bites into it.)</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="line">So juicy.</p>
+
+    <p class="stage">(He takes another bite.)</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="line">So spicy.</p>
+
+    <p class="speaker">The Gravedigger</p>
+    <p class="line">Almost ready!</p>
+
+    <p class="speaker">Napoleon</p>
+    <p class="line">Let me have some of the pasta first.</p>
+
+    <p class="stage">(Lights out.)</p>
+
+    <p class="stage">(A pause.)</p>
+
+    <p class="stage">(A spotlight fades in, focusing on the First Student. He is asleep on Napoleon&rsquo;s sun lounger. All others are gone. When the light becomes glaring, he wakes with a start.)</p>
+
+    <div class="signature">
+      <a href="https://steffenhuck.github.io/">steffen huck</a>
+    </div>
+
+  </div>
 </body>
-
 </html>
